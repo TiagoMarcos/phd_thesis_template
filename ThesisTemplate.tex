@@ -1,0 +1,283 @@
+%PhD Thesis (TS Marcos)
+%Pax6 role in cortical cell differentiation and fate
+
+%bulk of writing to be done first in word and them formatted here
+%script started 20/09/2017
+
+%chapter first pages are annoying, I am keeping them simple here but for final thesis may do chapter pages using inkscape or gravit designer
+
+\documentclass[10pt]{report}
+\setcounter{secnumdepth}{0}
+
+%\usepackage[tocflat]{tocstyle}
+%\usetocstyle{standard}
+
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage[textwidth =5.8in, footskip=0.8in, headsep=0.50in, marginparwidth=2in]{geometry}
+
+\usepackage{fancyhdr} %sometimes this clashes with margins, may need tweaking
+
+\usepackage{amsmath}
+\usepackage{algorithm2e}
+\usepackage{booktabs} %good for tables
+\usepackage{listings} %used to include code, python, Javacript etc
+\usepackage{verbatim} %comment environment for large sections
+\usepackage{titlecaps}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newcommand{\allexp}{All experimental groups were randomized by running a randomization R script.} %test the newcommand function
+\newcommand{\intconc}{Internal solution composition as follows:...}
+\newcommand{\Rscript}{Data was validated using an R script for statistical analysis}
+
+
+\graphicspath{{/cmvm.datastore.ed.ac.uk/cmvm/sbms/users/s0925294/Writing/} }
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+\rhead{May 2020}
+\chead{\textit{Pax6 and Cortical Cell Specification}}
+\lhead{Tiago S. Marcos}
+\rfoot{\thepage}
+\lfoot{The University of Edinburgh}
+
+\begin{comment}
+\begin{titlepage}
+\begin{document}
+	\centering
+           \begin{figure}[H]
+	\center\includegraphics[width=7cm]{unilogo.jpeg}
+           \end{figure}
+	{\scshape\LARGE CoMPLEX - UCL \par}
+	\vspace{1cm}
+	{\scshape\Large Mini-Project I\par}
+	\vspace{1.1cm}
+	\noindent\rule{14cm}{0.4pt}\par
+	{\bigskip\huge\bfseries Modelling Mitochondrial Metabolism - Using COBRApy to Explore Cancer Phenotypes\par}
+	\vspace{2cm}
+	{\Large\itshape Tiago Marcos\par}
+	\vfill
+	supervised by\par
+	Dr.Kevin Bryson and Dr. Gyorgy Szabadkai
+	\vfill
+	\textbf{3502 words as counted by TeXcount (Perl Script)}
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+\end{comment} % ALTERNATIVE TITLE PAGE
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\textbf{\Large \color{Blue}{The Role of Pax6 in Cortical Cell Differentiation}}\\
+\bigskip
+\bigskip
+\textit{\large Tiago S. Marcos}\\
+\end{center}
+\bigskip
+\bigskip
+\bigskip
+
+\begin{figure}[H]
+\center\includegraphics[width=7cm]{unilogo}\\
+\end{figure}
+\noindent\rule{15cm}{0.4pt}\bigskip\\
+
+\begin{center}
+\noindent\titlecap{Thesis submitted for the obtention of the degree of Doctor of Philosophy (PhD)}\\
+\bigskip
+\noindent{\textbf{Primary Supervisor:} Dr. Michael Daw}\\
+\medskip
+\noindent{\textbf{Secondary Supervisor:} Prof David Price}\\
+\bigskip
+
+\vfill\noindent \today
+\end{center}
+
+\end{titlepage}
+
+\section{Declaration}
+\bigskip
+I, Tiago S. Marcos, herein declare that all work presented in this manuscript is my own and where experiments have been performed by another party credit has been given to them. All third party intellectual work and content has been fully referenced throughout.\\
+
+\noindent Additionally I also declare that no part of this thesis has been used for the obtention of any other academic degree or professional qualification.\\ %columns for name and signature
+\vfill
+\noindent .......................................................\\
+
+\noindent Tiago S. Marcos\\
+
+\noindent \today
+\vspace{4in}
+\newpage
+
+\section{Abstract}
+\bigskip
+Interneurons at the cortex in the adult mouse are canonically reported to be born outside the cortex and then migrate to their final position in the cortical layers. The GEs appear to be the origin of divergent types of interneurons.\\
+\noindent Radial and tangential migration modes are used by cINs\\
+\noindent BrDU experiments\\
+\noindent The absence\\
+
+\noindent \Rscript
+\newpage
+
+\tableofcontents%table of contents
+\newpage
+
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+\newpage
+
+\section{Acknowledgements} %LCD Soundsystem - all my friends
+Thank you to my thesis committee: Dr. Michael Daw, Prof David Price, Dr. Martine Manuel and Dr. Melanie Stefan.
+\newpage
+
+\section{List of Abbreviations}
+
+\noindent \textbf{GAD} - Glutamic Acid Decarboxylase\\
+\noindent \textbf{GE} - Ganglionic Eminence \\
+\noindent \textbf{cIN} - Cortical Interneuron\\
+\noindent \textbf{PC} - Pyramidal cells\\
+\noindent \textbf{DAPI} - DAPI stain\\
+
+
+\newpage
+\chapter{Pax6 as a TF}  % CHAPTER 1 BEGINS
+
+\newpage
+
+\allexp
+
+\begin{table}[htbp]
+\caption{xxx}
+\centering
+\begin{tabular}{@{}p{0.12\textwidth}*{4}{L{\dimexpr0.22\textwidth-2\tabcolsep\relax}}@{}}
+\toprule
+& \multicolumn{2}{c}{BCom} &
+\multicolumn{2}{c}{B.Bus.Sci} \\
+\cmidrule(r{4pt}){2-3} \cmidrule(l){4-5}
+& Number of courses required to pass & Cumulative Total of Courses & Number of courses &         Cumulative Total of Courses\\
+\midrule
+First year & 4 & 8 & 4 & 18 \\
+\bottomrule
+\end{tabular}
+\label{table:mr}
+\end{table}
+
+\newpage
+
+\chapter{Somatosensory Cortex}   %CHAPTER 2 BEGINS
+\newpage
+\section{2.1 Introduction}
+\subsubsection{Ex}
+FP6CD1
+\noindent Cre-recombinase - LoxP
+\noindent sjfbkjf\\
+
+\section{2.2 Materials and Methods}
+
+\begin{figure}[H]
+\center\includegraphics[width=7cm]{unilogo}
+\caption{Pax6 expression at the thalamus}
+\end{figure}
+
+\begin{figure}[H]
+\center\includegraphics[width=7cm]{unilogo}
+\caption{Pax6 expression at the cortex}
+\end{figure}
+
+\subsection{2.2.1 Free-Floating Immunos}
+\subsection{2.2.2 Immuno-DAB}
+\subsection{2.2.3 EPhys}
+The membrane time constant (tau) was determined by averaging 20 traces...
+\noindent Capacitance
+
+Lala\\
+\noindent \intconc %test new command 2
+
+\newpage
+
+\chapter{The Hippocampus}
+\newpage
+%try columns
+The cells in the singularity were initally targeted in order to determine...
+\noindent In order to
+\noindent Pyramidal
+\newpage
+
+\chapter{Principal Cells}
+\newpage
+Neurons fire...
+\begin{gather} 
+2x - 5y =  8 \\ 
+3x^2 + 9y =  3a + c
+\end{gather}
+\noindent \allexp
+
+\begin{lstlisting}[language=Python]
+
+max_atp = []
+fumarase_flux = []
+
+for i in range(11):
+    
+    mit_model.reactions.R01082MM.upper_bound = 0
+    mit_model.reactions.R01082MM.lower_bound = -i
+    
+    mit_model.optimize()
+    max_atp.append(mit_model.solution.f)
+    fumarase_flux.append(mit_model.solution.x_dict['R01082MM'])
+    
+print max_atp
+print fumarase_flux
+print (` Programmed Cell Death')
+
+    
+\end{lstlisting}
+
+\noindent TPC
+
+\begin{multicols}{2} %Multicolumns testing
+
+\lipsum
+
+\end{multicols}
+
+\newpage
+
+
+\chapter{Interneurons}
+\newpage
+Single channel recordings...
+\noindent Immuno-tests were run to test the antibody etc...\\
+\noindent Free-floating slices
+\noindent The results obtained revealed that\\
+\noindent DAPI used to tag the nucleus and determine..
+\newpage
+
+\chapter{Conclusions}
+\newpage
+
+\noindent Transcription factors (TFs) are proteins that regulate what genes are expressed in the cell at specific time points \cite{DeFelipe2013}.\\
+\noindent Pax6 and Friends\\
+
+\newpage
+
+
+
+%\bibliographystyle{} HOLD - may need to do a bst file for this
+\bibliography{thesis.bib} %BIBLIOGRAPHY
+
+
+
+
+
+
+
+\end{document}
